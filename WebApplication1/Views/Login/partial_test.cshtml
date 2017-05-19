@@ -1,0 +1,48 @@
+﻿
+@{
+    <!--Layout = null;-->
+}
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                
+                $("#ajax_call").click(function () {
+                    $.ajax({
+                        url:"/Login/partial_text",
+                        data: { table: $("#select option:selected").val(), value: $("#input_text").val() },
+                        success: function (result) {
+                            $("#here").html(result);
+                        }
+
+                    });
+                });
+            })
+
+        </script>
+
+    </head>
+    <body>
+        <select id="select">
+            <option value="id">id</option>
+            <option value="Firstname">Firstname</option>
+            <option value="Lastname">Lastname</option>
+            <option value="Email">Email</option>
+        </select>
+        <input type="text" id="input_text">
+        <input type="button" value="click" id="ajax_call">
+        <div id="here"></div>
+    </body>
+   
+</html>
+
+
+
+
+
+
+
+
+
